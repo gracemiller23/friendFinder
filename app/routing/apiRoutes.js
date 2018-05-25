@@ -9,7 +9,7 @@ module.exports = function(app){
     app.post("/api/friends", function(req, res){
         friendsArray.push(req.body);
         console.log("new friends array:"+ friendsArray);
-        res.json(true);
+       
       
           console.log(friendsArray);
           console.log("------------------------------------");
@@ -43,9 +43,14 @@ module.exports = function(app){
     var bestieImage = friendsArray[findBestie].photo;
 
     console.log("bestieName: " +bestieName);
+
+    var bestie = {
+        name: bestieName,
+        photo: bestieImage
+    }
     
    
-
+    res.json(bestie);
 
     });
 
